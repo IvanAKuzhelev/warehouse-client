@@ -2,7 +2,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import ProductWrapper from "./ProductWrapper";
 import IProduct from "./utils/ProductInterface";
+import Pagination from "@material-ui/lab/Pagination";
 
 const ProductsList = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -32,12 +34,21 @@ const ProductsList = () => {
 
   return (
     <List>
+      <Pagination count={10} variant="outlined" color="secondary" />
       {products.map((prod) => (
-        <ListItem divider key={prod._id}>
-          <p>{prod.name}</p>
-          <p>Available: {prod.count}</p>
-          <p>Price: {prod.price}</p>
-        </ListItem>
+        <ProductWrapper
+          key={prod._id}
+          count={prod.count}
+          imageUrl={prod.imageUrl ? prod.imageUrl : ""}
+          _id={prod._id}
+          name={prod.name}
+          price={prod.price}
+        />
+        // <ListItem divider key={prod._id}>
+        //   <p>{prod.name}</p>
+        //   <p>Available: {prod.count}</p>
+        //   <p>Price: {prod.price}</p>
+        // </ListItem>
       ))}
     </List>
   );

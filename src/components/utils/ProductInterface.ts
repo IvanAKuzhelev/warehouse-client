@@ -1,7 +1,8 @@
 interface IProduct {
-  _id: String;
-  name: String;
-  price: Number;
-  count: Number;
+  _id: string;
+  name: string;
+  price: number;
+  count: number;
+  imageUrl?: string;
 }
 export default IProduct;

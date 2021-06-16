@@ -7,6 +7,7 @@ import ProductsList from "./components/ProductsList";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import "@fontsource/roboto";
+import Header from "./components/Header";
 
 function App() {
   const [products, setProducts] = useState<String[]>(["aaa", "bbb"]);
@@ -15,9 +16,9 @@ function App() {
     <React.Fragment>
       <CssBaseline />
 
-      <Container>
-        <ProductsList />
-      </Container>
+      <Header />
+      <ProductsList />
+      {/* <Container></Container> */}
     </React.Fragment>
   );
 }
